@@ -1,0 +1,22 @@
+ul.header {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: lightcoral;
+}
+
+li.link {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+}
+
+.link a {
+    text-decoration: none;
+}
+
+div.container {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
