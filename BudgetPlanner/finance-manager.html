@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Manager</title>
+
+    <style>
+        .container {
+            border-radius: 5px;
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        #title {
+            text-align: center;
+        }
+    
+        #table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #showTotal {
+            text-align: end;
+            margin-top: 10px;
+        }
+        
+       td, th {
+          border: 1px solid gray;
+          padding: 8px;
+        }
+        
+        
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          
+        }
+        </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3><a href="homepage.html"><< Go Back</a></h2><br>
+        <h1 id="title">Finance Managers</h1>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Project</th>
+                    <th>Budget</th>
+                </tr>
+            </thead>
+            
+            <tbody id="database"></tbody>
+            
+            <br>
+
+        </table>
+
+        <div id="showTotal">Total Budget: <span id="total"></div>
+    </div>
+
+    <script>
+        
+        //get initial values
+        let table = document.getElementById("database");
+        let total = 0;
+
+        //get current database values
+        let currentStorage = JSON.parse(sessionStorage.getItem("projects"));
+
+        //create new row with each project entry in database
+        currentStorage.forEach(entry => {
+
+            let entryRow = table.insertRow(-1);
+            let clientCell = entryRow.insertCell(-1);
+            let projCell = entryRow.insertCell(-1);
+            let budgetCell = entryRow.insertCell(-1);
+
+            clientCell.innerHTML = entry["cname"];
+            projCell.innerHTML = entry["pname"];
+            budgetCell.innerHTML = entry["budget"];
+
+
+            total+=parseFloat(entry["budget"]);
+
+            document.getElementById('total').innerHTML = total;
+
+        }); 
+
+
+    </script>
+</body>
+</html>
