@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Manager</title>
+</head>
+
+<style>
+    .container {
+      border-radius: 5px;
+      background-color: lightgray;
+      padding: 20px;
+    }
+
+    #title {
+        text-align: center;
+    }
+    
+    label {
+        font-size: large;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: green;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=button] {
+      width: 100%;
+      background-color:red;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: darkgreen;
+    }
+
+    input[type=button]:hover {
+      background-color: darkred;
+    }
+    
+    
+    </style>
+<body>
+
+    <div class="container">
+        <h3><a href="homepage.html"><< Go Back</a></h2><br>
+
+        <h1 id="title">Program Managers</h1>
+
+        <form onsubmit="onSubmit()">
+            <label for="cname">Client Name</label><br>
+            <input type="text" id="cname" name="cname" placeholder="Enter Client Name"><br>
+            <label for="pname">Project Name</label><br>
+            <input type="text" id="pname" name="pname" placeholder="Enter Project Name"><br>
+            <label for="budget">Budget</label><br>
+            <input type="text" id="budget" name="budget" placeholder="Enter Budget Number **NUMBER ONLY**"><br>
+            <br> 
+            <input type="submit" value="Add">
+            <input type="button" value="Clear Database" onclick="window.sessionStorage.clear(); alert('Database cleared')">
+        </form>
+
+    </div>
+
+    <script>
+
+        let onSubmit = () => {
+
+            //retrieve details from form inputs
+            let details = {
+
+                cname: document.getElementById('cname').value,
+                pname: document.getElementById('pname').value,
+                budget: document.getElementById('budget').value
+
+            }
+
+            //get current database state
+            let currentStorage = JSON.parse(sessionStorage.getItem("projects"));
+
+            //update database
+            currentStorage.push(details);
+
+            //push updated database back into storage
+            sessionStorage.setItem("projects", JSON.stringify(currentStorage));
+            
+            alert('Project Details added!');
+        }
+
+    </script>
+</body>
+</html>
