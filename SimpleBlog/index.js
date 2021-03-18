@@ -82,7 +82,10 @@ let onAddPost = () => {
     //push updated database back into storage
     sessionStorage.setItem("posts", JSON.stringify(currentStorage));
     
+    //code to hide modal after close
     $('#addPost').modal('hide');
+
+    //reloads page after add
     document.location.reload();
     
 }
