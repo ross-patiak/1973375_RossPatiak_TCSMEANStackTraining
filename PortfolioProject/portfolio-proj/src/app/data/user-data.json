@@ -1,0 +1,18 @@
+{
+    "user1": {
+        "email": "email1@gmail.com",
+        "password": "password",
+        "data": [{"name": "Contact 1", "phone": "2010121234"}, {"name": "Contact 2", "phone": "123434543551"} ]
+    },
+    "user2": {
+        "email": "email2@gmail.com",
+        "password": "password",
+        "data": [{"name": "Contact 1", "phone": "2010121234"}]
+    },
+    "user3": {
+        "email": "email3@gmail.com",
+        "password": "password",
+        "data": [{"name": "Contact 1", "phone": "2010121234"}, {"name": "Contact 3", "phone": "1564672233"}]
+    }
+
+}
