@@ -1,1 +1,62 @@
-<p>homepage works!</p>
+<!doctype html>
+<html lang="en">
+  <head> 
+    <meta charset="utf-8">
+    
+    <title>Homepage</title>
+    
+    <!-- Custom styles for this template -->
+    <link href="homepage.component.css" rel="stylesheet">
+</head>
+<body class="text-center mx-auto mt-2">
+    <div class="container">
+        <div class="row justify-content-md-center mb-5">
+            <h1 class="mb-4 text-center">Welcome {{ firstName }}!</h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-3">
+                <h2 class="h3 mb-3 fw-normal">Enter Contact Details</h2>
+                <div class="form-signin">
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="form-floating">
+                        <input formControlName="name" name="email" type="text" class="form-control" placeholder="Name">
+                        <input formControlName="phone" type="text" class="form-control" placeholder="Phone Number">
+                    </div>
+        
+                    <button class="w-100 btn btn-lg btn-primary mb-2 mt-2" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Phone Number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let contact of contacts">
+                      
+                      <td>
+                        {{ contact.name }}
+                      </td>
+                      <td>{{ contact.phone }}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+            </div>
+          
+                
+                
+            
+        </div>
+       
+    </div>
+    
+
+
+  </body>
+</html>
