@@ -1,15 +1,21 @@
 {
     "user1": {
+        "firstName": "fName1",
+        "lastName": "lName1",
         "email": "email1@gmail.com",
         "password": "password",
         "data": [{"name": "Contact 1", "phone": "2010121234"}, {"name": "Contact 2", "phone": "123434543551"} ]
     },
     "user2": {
+        "firstName": "fName2",
+        "lastName": "lName2",
         "email": "email2@gmail.com",
         "password": "password",
         "data": [{"name": "Contact 1", "phone": "2010121234"}]
     },
     "user3": {
+        "firstName": "fName3",
+        "lastName": "lName3",
         "email": "email3@gmail.com",
         "password": "password",
         "data": [{"name": "Contact 1", "phone": "2010121234"}, {"name": "Contact 3", "phone": "1564672233"}]

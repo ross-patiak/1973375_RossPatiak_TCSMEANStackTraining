@@ -35,19 +35,22 @@ export class LoginComponent implements OnInit {
   onSubmit():void {
     const { email, password } = this.loginForm.value;
     const currentData = JSON.parse(sessionStorage.getItem("users"));
+    let user:any = '';
     
     //loop through current user data to see if they are registered
     Object.entries(currentData).forEach(([key, value]) => {
       if(value['email'] === email && value['password'] === password) {
-        //if registered, log them in successfully+redirect to homepage
+        //user variable here acts as an id param to redirect to the proper user profile
+        user = key;
         sessionStorage.setItem("isLoggedIn", JSON.stringify(true));
       }
     });
 
+    //if registered, log them in successfully+redirect to homepage
     if(sessionStorage.getItem("isLoggedIn") === "false") {
       alert('Wrong email or password');
     } else { 
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/home/'+user);
     }
 
   }
