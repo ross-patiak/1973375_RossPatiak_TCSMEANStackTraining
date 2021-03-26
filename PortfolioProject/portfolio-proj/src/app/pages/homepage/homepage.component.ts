@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +14,7 @@ export class HomepageComponent implements OnInit {
   contacts:Array<any>;
   contactForm:FormGroup;
 
-  constructor(private route:ActivatedRoute, private fb:FormBuilder) { 
+  constructor(private route:ActivatedRoute, private fb:FormBuilder, private router:Router) { 
     //using ActivatedRoute module, get current user from URL param
     this.user = this.route.snapshot.paramMap.get("user");
    }
@@ -41,14 +40,21 @@ export class HomepageComponent implements OnInit {
   onSubmit():void {
     const newContact = this.contactForm.value;
 
+    //add new contact to contacts Array of this user
     this.contacts.push(newContact);
 
+    //replace contacts Array from storage with updated Array
     let currentData = JSON.parse(sessionStorage.getItem("users"));
-
     currentData[this.user].data = this.contacts;
 
+    //store updated Array in storage
     sessionStorage.setItem("users", JSON.stringify(currentData));
 
+  }
 
+  //sign out btn logic
+  signOut():void {
+    this.router.navigateByUrl('/login');
+    alert('Log out success!');
   }
 }
