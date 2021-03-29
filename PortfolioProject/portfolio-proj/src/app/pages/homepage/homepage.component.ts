@@ -54,6 +54,7 @@ export class HomepageComponent implements OnInit {
 
   //sign out btn logic
   signOut():void {
+    
     this.router.navigateByUrl('/login');
     alert('Log out success!');
   }

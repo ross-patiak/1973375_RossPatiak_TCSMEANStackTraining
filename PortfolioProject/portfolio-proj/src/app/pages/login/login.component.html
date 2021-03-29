@@ -24,7 +24,14 @@
       <div class="text-muted">Not registered? <a routerLink="/sign-up">Sign up!</a></div>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>
+
+    <!-- create clearStorage button for easy testing -->
+    <div class="text-center">
+      <button type="button" class="btn btn-danger" onclick="window.sessionStorage.clear(); document.location.reload()">Clear sessionStorage</button>
+    </div>
   </main>
+
+    
 
 
   </body>

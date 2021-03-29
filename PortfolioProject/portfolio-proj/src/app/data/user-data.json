@@ -1,7 +1,7 @@
 {
     "user1": {
-        "firstName": "fName1",
-        "lastName": "lName1",
+        "firstName": "Bob",
+        "lastName": "Forman",
         "email": "email1@gmail.com",
         "password": "password",
         "data": [{"name": "Contact 1", "phone": "2010121234"}, {"name": "Contact 2", "phone": "123434543551"} ]
