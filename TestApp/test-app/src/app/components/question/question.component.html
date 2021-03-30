@@ -1,8 +1,27 @@
-<div class="card">
-    <h5 class="card-header">Featured</h5>
+<div class="card mb-2">
+    <h5 class="card-header">{{ question.question }}</h5>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">{{ question }}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <form [formGroup]="parentForm">
+        <div class="form-check">
+            <input [formControlName]="key" class="form-check-input" type="radio" [name]="key" [value]="question.answer[0]">
+            <label class="form-check-label" for="op1">{{ question.answer[0].option }}</label>
+        </div>
+        
+        <div class="form-check">
+            <input [formControlName]="key" class="form-check-input" type="radio" [name]="key" [value]="question.answer[1]">
+            <label class="form-check-label" for="op2">{{ question.answer[1].option }}</label>
+        </div>
+
+        <div class="form-check">
+            <input [formControlName]="key" class="form-check-input" type="radio" [name]="key" [value]="question.answer[2]">
+            <label class="form-check-label" for="op3">{{ question.answer[2].option }}</label>
+        </div>
+
+        <div class="form-check">
+            <input [formControlName]="key" class="form-check-input" type="radio" [name]="key" [value]="question.answer[3]">
+            <label class="form-check-label" for="op4">{{ question.answer[3].option }}</label>
+        </div>
+    
+    </form>
     </div>
 </div>

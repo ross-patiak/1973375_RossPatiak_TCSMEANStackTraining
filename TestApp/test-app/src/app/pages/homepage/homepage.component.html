@@ -1,8 +1,16 @@
-<h1 class="mb-4">Quiz Form</h1>
-<h2 class="h3 mb-3 fw-normal">Please best answer</h2>
-
-<ul>
-    <li *ngFor="let question of questions">
-        <app-question [question]="question"></app-question>
-    </li>
-</ul>
+<div class="container-md pt-3">
+    <h1 class="mb-4 d-inline">Quiz Form</h1>
+    <app-score></app-score>
+    <!-- <button type="button" class="btn btn-primary float-right signoutbtn d-inline" (click)="onCheck()">Add Question</button> -->
+    
+    <h2 class="h3 mb-3 fw-normal">Please choose the best answer</h2>
+   
+    <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+        <div *ngFor="let question of questions; index as i">
+            <app-question [question]="question" [parentForm]="parentForm" [key]="'question'+i"></app-question>
+        </div>
+        
+        <button class="w-50 btn btn btn-primary mb-2 float-center" type="submit" data-toggle="modal" data-target="#addPost">Submit</button>
+    </form>
+        
+</div>

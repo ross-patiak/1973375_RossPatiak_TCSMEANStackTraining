@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Question } from 'src/app/question';
 
 @Component({
   selector: 'app-question',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
+  @Input() question:Question;
+  @Input() index:number;
+  @Input() key:string;
+  @Input() parentForm:FormGroup;
+
+  
   constructor() { }
 
   ngOnInit(): void {
+
+    
   }
 
 }
