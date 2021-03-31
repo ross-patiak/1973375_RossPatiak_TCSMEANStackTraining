@@ -1,16 +1,24 @@
 <div class="container-md pt-3">
-    <h1 class="mb-4 d-inline">Quiz Form</h1>
-    <app-score></app-score>
-    <!-- <button type="button" class="btn btn-primary float-right signoutbtn d-inline" (click)="onCheck()">Add Question</button> -->
-    
+    <h1 id="top" class="mb-4 d-inline">Quiz Form</h1>
+    <button type="button" class="btn btn-primary float-right signoutbtn d-inline" (click)="onCheck()">Add Question</button>
     <h2 class="h3 mb-3 fw-normal">Please choose the best answer</h2>
+
+    <h1 class="text-center" *ngIf="submitted"> Score: {{ corrAns }}/{{ totalQuestions }}</h1>
    
     <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
         <div *ngFor="let question of questions; index as i">
+            <!-- after user submits show right answers -->
+            <!-- dynamic color attr using style.color -->
+            <h6 class="text-right" *ngIf="submitted" [style.color]="getStyles(i)"> {{ resultString(i) }} </h6>
+
+            <!-- displays user questions in the form of cards -->
             <app-question [question]="question" [parentForm]="parentForm" [key]="'question'+i"></app-question>
         </div>
         
-        <button class="w-50 btn btn btn-primary mb-2 float-center" type="submit" data-toggle="modal" data-target="#addPost">Submit</button>
+        <div class="text-center">
+            <!-- add onclick scroll to top function to see score -->
+            <button class="w-50 btn btn btn-primary mb-2 float-center" type="submit" onclick="document.documentElement.scrollTop = 0;">Submit</button>
+        </div>
     </form>
         
 </div>
