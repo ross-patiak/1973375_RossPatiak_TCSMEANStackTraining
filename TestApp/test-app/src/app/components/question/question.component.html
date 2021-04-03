@@ -3,6 +3,8 @@
     <div class="card-body">
     <form [formGroup]="parentForm">
         <div class="form-check">
+            <!-- radio buttons must have same name as to get only one button at a time -->
+            <!-- when clicked, it returns the answer and the its boolean value as {option:, correct: } objects -->
             <input [formControlName]="key" class="form-check-input" type="radio" [name]="key" [value]="question.answer[0]">
             <label class="form-check-label" for="op1">{{ question.answer[0].option }}</label>
         </div>

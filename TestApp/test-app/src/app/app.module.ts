@@ -7,7 +7,6 @@ import { QuestionComponent } from './components/question/question.component';
 import { AddFormComponent } from './components/add-form/add-form.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ScoreComponent } from './components/score/score.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { ScoreComponent } from './components/score/score.component';
     QuestionComponent,
     AddFormComponent,
     HomepageComponent,
-    ScoreComponent
   ],
   imports: [
     BrowserModule,

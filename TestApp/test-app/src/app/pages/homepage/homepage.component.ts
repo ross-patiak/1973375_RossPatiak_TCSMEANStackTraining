@@ -45,15 +45,15 @@ export class HomepageComponent implements OnInit {
   }
 
   onSubmit() {
-    //returns array of values
+    //get all user answers 
     let answers = Object.values(this.parentForm.value);
-
-    //track all wrong answers into wrongAns
-    answers.forEach(answer => this.wrongAns.push(!answer['correct']));
-    
     this.totalQuestions = answers.length;
 
-    //filters all the correct answers into 1 array
+    //track all wrong answers into wrongAns, meaning if user is wrong then wrongAns[i] is true
+    //this array will be used for the getStyles() function below
+    answers.forEach(answer => this.wrongAns.push(!answer['correct']));
+    
+    //filters all the correct user answers into 1 array
     answers = answers.filter(answer => answer['correct'] === true);
 
     //outputs score 
