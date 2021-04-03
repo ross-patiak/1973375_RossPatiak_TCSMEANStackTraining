@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 
 import { Question } from '../../question';
@@ -20,7 +21,7 @@ export class HomepageComponent implements OnInit {
   allAns:string[]=[];
   wrongAns:boolean[]=[];
 
-  constructor(private dataService: DataService, private fb:FormBuilder) { }
+  constructor(private dataService: DataService, private fb:FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     //gets questions list from dataService then passes this.questions as input for question component
@@ -31,9 +32,9 @@ export class HomepageComponent implements OnInit {
       this.testState['question'+i] = '';
     })
 
-    //finish initializing parentForm values
+    //finish initializing parentForm values 
     this.parentForm = this.fb.group(this.testState);
-
+  
     this.questions.forEach(question => {
       let tmp = Object.values(question['answer']);
       tmp = tmp.filter(answer => answer['correct'] === true);
@@ -61,10 +62,13 @@ export class HomepageComponent implements OnInit {
     this.submitted = true;
   }
 
-  onCheck():void {
-    console.log(this.parentForm.value);
+  //redirects to add-question form
+  onAdd():void {
+    this.router.navigateByUrl('/add-form');
   }
 
+
+  //display result string
   resultString(i:number):string {
     if(this.wrongAns[i]) { 
       return "Correct Answer: " + this.allAns[i];
@@ -73,6 +77,7 @@ export class HomepageComponent implements OnInit {
 
   }
 
+  //conditionally assigns color to question result; wrong=red, right=green
   getStyles(i:number):string {
     if(this.wrongAns[i]) {
       return 'red';

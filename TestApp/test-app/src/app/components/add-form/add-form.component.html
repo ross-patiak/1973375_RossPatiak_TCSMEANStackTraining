@@ -1,40 +1,44 @@
-<!-- Modal template from Boostrap docs-->
-<div class="modal fade" id="addPost" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title">Add Question</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-            <form id="postForm">
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title" placeholder="Enter Title">
-                </div>
-                <br>
-                <div class="form-group">
-                  <label for="body">Body</label>
-                  <textarea class="form-control" id="body" rows="3"></textarea>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="tags">Tags</label>
-                    <input type="text" class="form-control" id="tags" placeholder="Add Tags">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label class="mb-2" for="img">Add Thumbnail:</label><br>
-                    <input type="file" class="form-control-file" id="img">
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="onAddPost()">Add</button>
-        </div>
+<div class="container-md pt-3">
+    <div class="text-center">
+        <h1 id="top" class="mb-4 d-inline">Add Test Question</h1>
+        <h6 class="text-muted">Please select your correct answer</h6>
     </div>
+    
+    <br>
+    
+    <div class="card mb-2">
+        <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+            <div class="card-header">
+                <input class="card-header" formControlName="questionText" name="text" type="text" class="form-control" placeholder="Enter Question">
+            </div>
+            
+            <div class="card-body">
+        
+                <div class="form-check">
+                    <input formControlName="correctAns" class="form-check-input" name="correctAns" type="radio" value="0">
+                    <input formControlName="op1" type="text" class="form-control" placeholder="Enter Option 1">
+                </div>
+                
+                <div class="form-check">
+                    <input formControlName="correctAns" class="form-check-input" name="correctAns" type="radio" value="1">
+                    <input formControlName="op2" type="text" class="form-control" placeholder="Enter Option 2">
+                </div>
+    
+                <div class="form-check">
+                    <input formControlName="correctAns" class="form-check-input" name="correctAns" type="radio" value="2">
+                    <input formControlName="op3" type="text" class="form-control" placeholder="Enter Option 3">
+                </div>
+    
+                <div class="form-check">
+                    <input formControlName="correctAns" class="form-check-input" name="correctAns" type="radio" value="3">
+                    <input formControlName="op4" type="text" class="form-control" placeholder="Enter Option 4">
+                </div>
+            </div>
+            
+            <div class="text-center"><button class="w-50 btn btn btn-primary mb-2 float-center" type="submit">Submit</button></div>
+            
+        </form>
+        
     </div>
+
 </div>
