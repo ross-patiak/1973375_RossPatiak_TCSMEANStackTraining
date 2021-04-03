@@ -26,11 +26,12 @@ export class HomepageComponent implements OnInit {
     //gets questions list from dataService then passes this.questions as input for question component
     this.questions = this.dataService.getQuestions();
     
-
+    //create keys for parentForm then initailize them
     this.questions.forEach((question, i) => {
       this.testState['question'+i] = '';
     })
 
+    //finish initializing parentForm values
     this.parentForm = this.fb.group(this.testState);
 
     this.questions.forEach(question => {

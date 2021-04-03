@@ -22,8 +22,11 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
 
     this.answers = Object.values(this.question['answer']);
+
+    //find correct answer for this particular question
     this.answers = this.answers.filter(answer => answer['correct'] === true);
 
+    //emit this for parent component to use
     this.correctAns.emit(this.answers[0].option);
     
   }
