@@ -18,7 +18,7 @@
             if(name && msg) {
                  //turn that into an object to emit to server
                 let packet = { "name":name, "msg":msg };
-                
+
                  //emit packet to server on "chat" event
                 socket.emit("chat", packet);     
             } else {
@@ -31,9 +31,10 @@
     </script>
 </head>
 <body>
+    <h1>Chat with Socket.io App</h1> <br>
     <form onsubmit="onSubmit()">
         <label for="name">Name:</label><br>
-        <input style="width: 150px;" type="text" id="name" name="name"><br>
+        <input style="width: 150px;" type="text" id="name" name="name"><br><br>
         <label for="msg">Message:</label><br>
         <textarea rows="3" cols="25" type="text" id="msg" name="msg"></textarea>
        <br><br>
