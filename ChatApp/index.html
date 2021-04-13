@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <!-- connected socket library file -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        let socket = io();      
+
+        function onSubmit() {
+            //get values from form html
+            let name = document.getElementById("name").value;
+            let msg = document.getElementById("msg").value;
+
+            if(name && msg) {
+                 //turn that into an object to emit to server
+                let packet = { "name":name, "msg":msg };
+                
+                 //emit packet to server on "chat" event
+                socket.emit("chat", packet);     
+            } else {
+                alert("Enter name and message!")
+            }
+
+            
+        }
+    
+    </script>
+</head>
+<body>
+    <form onsubmit="onSubmit()">
+        <label for="name">Name:</label><br>
+        <input style="width: 150px;" type="text" id="name" name="name"><br>
+        <label for="msg">Message:</label><br>
+        <textarea rows="3" cols="25" type="text" id="msg" name="msg"></textarea>
+       <br><br>
+        <input type="submit" value="Send">
+      </form> 
+</body>
+</html>
