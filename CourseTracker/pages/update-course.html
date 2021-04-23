@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+</head>
+<body>
+    <h1>Update Course</h1><br>
+    <form id="form" method="post" onsubmit="onSubmit()">
+        <label>Course Id</label>
+        <input id="cid" type="text" name="cid"/><br/>
+        <label>Amount</label>
+        <input type="text" name="amount"/><br/>
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="reset"/>
+    </form>
+
+    <a href="index.html">Back to Home</a>
+    
+    <!-- must add an onSubmit function to dynamically change formaction values -->
+    <script type="text/JavaScript">
+        function onSubmit() {
+            const cid = document.getElementById("cid").value;
+            document.getElementById("form").action = "/api/courses/update/"+cid;
+        }
+    </script>
+</body>
+</html>
